@@ -1,0 +1,47 @@
+﻿// Author: Janathan Phouminh
+// Recitation: 930am
+// Akriti Kapur
+// Homework 3
+// Feburary 4th, 2018
+
+
+#include <iostream>
+using namespace std;
+/*
+    1. printEvenNums takes one integer parameter
+        - redefine parameter
+        - initialize count varible at 2
+        while loop that continues to execute until conidition is false
+            - Everytime the loop is ran the loop will add 2 to the count
+            - print new count variable
+            
+    2. main()
+        -Test cases
+*/ 
+
+
+
+
+int printEvenNums(int number)           // accepts one int parameter
+{
+    int max_value = number;     // redefine
+    int count = 2;          // initialize
+    
+    while (count <= max_value)      //conditional
+    {
+        cout << count << endl;          // console out
+        count = count + 2;          // accumulator
+    }    
+    
+    
+    return 0;
+}
+
+
+int main()
+{
+    printEvenNums(10);          //test cases
+    printEvenNums(11);
+    printEvenNums(12);
+    printEvenNums(13);
+}

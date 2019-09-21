@@ -1,0 +1,44 @@
+﻿#include <string>
+// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Fleming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Recitation 6 problem 5
+// February 22, 2018
+
+
+#include <iostream> 
+using namespace std;
+
+
+void shiftNums(int myArray[] , int length)        // finding the last piece of the integer array
+{
+    int size = length;
+    int first_number = 0;               // variable for saving the first number of the array as the second number 
+    
+
+
+    first_number = myArray[size - 1];          // actually saving the first
+    
+    int i = size - 1;                   // working backwards, starting from the largest value
+    while (i >= 0)
+    {
+        
+        myArray[i] = myArray[i - 1];            // current index value equal the the value of the index prevously
+        i = i - 1;
+    }
+    myArray[0] = first_number;      // replacing the current value of the first index with the orginal value of the last number in the original array 
+    
+}
+
+
+int main()
+{
+    // int i = 0;
+    int size = 4;
+     int array_test[] = {5,0,0,1};
+    
+    shiftNums(array_test,size);
+ 
+}

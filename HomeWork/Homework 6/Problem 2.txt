@@ -1,0 +1,97 @@
+﻿// Jonthan Phouminh
+// CS1300 Spring 2018
+// Vipra / Flemming
+// March 11. 2018
+// Recitation 930 Tuesday
+// Homework 6 Problem 1
+
+
+#include <iostream> 
+#include <fstream>
+#include <iomanip>
+#include <string> 
+using namespace std;
+
+
+/*
+    declare function that will return an integer , takes string, 2d array for the empty words, int for rows of the 2d array, and int for the starting index
+    decalre an instream variable
+    open the desired file that will be read
+    
+    start a variable for the counter that will be returned 
+    conditional that evaluates given paramaters for edge case 
+    while loop that runs for as long as there is lines in the file
+        begin filling the 2d array
+            initialize a variable for the tab index
+            once found, filel the first column with the substring of the substr of the line before the tab index and then the other colum with the rest of the substring
+            go through each row by updating start index for the 2d array
+        return start index
+        
+    close file
+    
+
+
+*/
+
+
+int ReadMisspelledWords(string filename, string misspelledWords[][2], int rows, int startIndex){
+    ifstream in_stream;     // declare instream variable
+    in_stream.open(filename);   // open the desired file name
+
+
+    //int count = 0;  // counter
+    string lines = "    ";  // one tab position
+
+
+    if(!in_stream.is_open() || startIndex >= rows) // edge case
+    {       
+        return -1;
+    }
+    else{   
+        while(getline(in_stream, lines))        // going through each 
+        {
+            int tab_position = 0;       // tab position that will be used for the susbtrings
+            for ( int i = 0; i < lines.length(); i++)   // finding hte tab positions
+            {
+                if(lines[i] == '\t')
+                {
+                    tab_position = i;
+                }
+            } 
+
+
+            misspelledWords[startIndex][0] = lines.substr(0, tab_position); // filling first column of the arry
+            misspelledWords[startIndex][1] = lines.substr(tab_position + 1);    // filling second column of the array
+            startIndex++;
+            if(startIndex == rows)
+            {
+                return startIndex;
+            }
+
+
+
+
+        }
+        return startIndex;      // return 
+
+
+    }
+    
+    in_stream.close();  // close
+
+
+}
+
+
+
+
+int main()
+{
+    string file_name = "MISSPELLED.txt";
+    int startIndex = 0;
+    
+    int rows = 100;
+    string sample_array[rows][2];
+    
+    ReadMisspelledWords(file_name, sample_array, rows, startIndex);
+}

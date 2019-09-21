@@ -1,0 +1,71 @@
+﻿#include <iostream>
+#include <iomanip>
+using namespace std;
+/*
+    take given class member function declarations and define them under the class declarations
+    add getter functions for the other private member functions to access them 
+    go through each member function and create function definition for each
+*/
+class battleShip{
+        public:
+                battleShip(string);
+                ~battleShip();
+                void setShipName(string);
+                string getShipName();
+                void setSize(int);
+                int getSize();      // getting access to the other private member 
+                void recordHit();        // Increments the hits data member
+                bool isSunk();        // returns true if hits is greater than equal to size
+
+
+        private:
+                string name;
+                int size;
+                int hits;
+};
+int battleShip::getSize()       // getting access to the private member size
+{
+    return size;
+}
+battleShip::battleShip(string name_given)       // default constructor 
+{
+    name = name_given;      // setting default object
+    size = -1;
+    hits = 0;
+}
+battleShip::~battleShip()
+{
+            // defining the destructor member functino
+}
+void battleShip::setShipName(string name_given) // setting the private member name = to the passed name from the main
+{
+    name = name_given;
+}
+string battleShip::getShipName()        // getting access to the private member name
+{
+    return name;
+}
+void battleShip::setSize(int given_size)        // setting the private mmeber of size equal to the given size passed by the main function
+{
+    size = given_size;
+}
+void battleShip::recordHit()    // updating the hit counter and printing out the current information of the current ship object
+{
+    hits++;     // updatin gship count
+    cout << name << " has been hit " << hits << " times." << endl;
+    
+}
+bool battleShip::isSunk()       // member function that will only actually do something if a conditional is met
+{
+    if(hits >= size)        // conditional that says if the current ship has been hit enough times
+    {
+        cout << name << " has been sunk." << endl;      // final print statement
+        return true;                                // boolean value returns true which will end the game
+    }
+}
+
+
+int main()
+{
+    
+}

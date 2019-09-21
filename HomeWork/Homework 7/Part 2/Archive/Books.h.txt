@@ -1,0 +1,96 @@
+﻿#include <iostream>
+#include <iomanip>
+#include <fstream> 
+#include <string>
+#include <stdio.h>
+#include <cctype>
+#include <math.h>
+#include <sstream>
+using namespace std;
+
+
+int Split(string sequence1, char seperator_character, string myArray[], int size)
+{
+    string sequence =  sequence1 + seperator_character;     // concatonate the seperator character  
+    string current_word;    // represents the substring that will be placed in the array that was taken from the string
+    int last_index = 0; // represents the last index of the last substring taken
+    int word_count = 0; // value that will end up being returned
+    int i = 0;  // g and i are counters
+    int g =0;
+    
+    if ( sequence1 == "" )      // edge case
+    {
+        return 0;
+    }
+    
+    while ( i <= sequence.length())
+    {
+        
+        if ( sequence[i] != seperator_character)        // part of the while loop that evaluetes if the current character is a seperator character or not
+        {
+            i = i + 1;
+        }
+        else if ( sequence[i] == seperator_character || sequence[i] == '\0')    // conditional that sees if the current index is the seperator character
+        {
+            //word_count = word_count + 1;
+            current_word = sequence.substr(last_index, i - last_index); // takes the substring from the current index -1 from the last known index
+            
+            myArray[g] = current_word;  // places the substring into the empty array
+            
+            //cout << current_word << endl;
+            last_index = i + 1; // saves the last index of the seperator character one character forward
+            //cout << current_word << endl;
+            i = i + 1;  // keeps while loop running
+            g = g + 1;  // counting the amount of words that were being added. 
+        }
+    }
+
+
+    word_count = g;     
+    return word_count;      // returning the final word count
+ 
+}
+
+
+class Book
+{
+public:
+
+
+    string getAuthor();         // variable declarations
+    string getTitle();
+    void setTitle(string);
+    void setAuthor(string);
+    
+    Book()                  // default constructor
+    {
+        author = "NONE";        // default values of the private members are set to nothing
+        title = "NONE";
+    }
+    Book(string given_title, string given_author)       // overloaded constructor
+    {
+        author = given_author;      // private attributes of the current object are set equal to the passed strings
+        title = given_title;
+    }
+private:
+    string title;
+    string author;
+};
+
+
+string Book::getAuthor()        // everything from here down are the function definitions for the public member functions 
+{
+    return author;
+}
+string Book::getTitle()
+{
+    return title;
+}
+void Book::setTitle(string given_title)
+{
+    title = given_title;
+}
+void Book::setAuthor(string given_author)
+{
+    author = given_author;
+}

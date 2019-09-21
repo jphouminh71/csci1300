@@ -1,0 +1,86 @@
+﻿// Jonthan Phouminh
+// CS1300 Spring 2018
+// Vipra / Flemming
+// March 11. 2018
+// Recitation 930 Tuesday
+// Homework 6 Problem 1
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+/*
+    function returns int value , takes string, string array, int for size of array, and starting index
+    declare instream file
+    open the instream file
+        check to see if they are open
+    itterate through the file
+        place each line into its own element into the correctWords Array
+    find word count by itterating through the new filled array and return the count
+    
+    close file
+
+
+*/
+
+
+int ReadCorrectWords(string file_name , string correctWords[], int size, int startIndex)
+{
+    ifstream infile;    // declaring instream variable that will be used to read the file
+    
+    infile.open(file_name); // infile variable is set to open the given file. 
+
+
+    if (!infile.is_open())      // edge case
+    {
+        return -1;
+    }
+    if (startIndex >= size)  // edge case
+    {
+        return -1;
+    }
+
+
+    string line = "placeholder";        // placeholder so the conditional of having an empty string in the beginning is exempt
+    
+    while(getline(infile, line) && startIndex < size)
+    {
+        if ( line != "")    // conditional 
+        {
+            correctWords[startIndex] = line;    // adding element of the given line into the array 
+            startIndex++;
+        }
+        
+    }
+   
+    int word_count = 0;     // counter
+    int i = 0;  // counter that indexes through the array
+    while(correctWords[i] != "\0" && i < size ) // going through the array
+    {
+        if (startIndex > size)      
+        {
+            return -1;
+        }
+        else{               // updating the word count
+        word_count = word_count + 1;
+        i++;
+        }
+    }
+    return word_count;  // return 
+    infile.close(); // close file
+}
+
+
+
+
+int main()
+{
+    string Correctspelledwords = "VALID_WORDS_3000-2.txt";
+    int startIndex = 0;
+    
+    int size = 3500;        // the text file has 3003 words not 3000
+    string correctWords[size];
+    
+    cout << ReadCorrectWords(Correctspelledwords, correctWords, size, startIndex);
+}

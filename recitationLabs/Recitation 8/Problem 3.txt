@@ -1,0 +1,49 @@
+﻿#include <iostream> 
+#include <fstream>
+using namespace std;
+
+
+/*
+    define function that will determine amount of lines in a file, accepts a string for the file name
+        declare instream variable
+        open a file that the instream variable will read off of
+        if the file does not open
+            return -1
+        else
+        start counter at 0
+        declare variable that will store values of getline fucntion
+        while loop that will execute until there are no more lines
+            for everytime the getline works, update the counter by 1
+        return the count 
+        close file. 
+
+
+*/
+
+
+int fileLoadRead(string file_name)      // accepts string variable for file name
+{
+    ifstream input_file;        // declaring instream variable
+    input_file.open(file_name); // opening file for instream variable
+    if (!input_file.is_open())  // conditional that checks if the file is open or not
+    {
+        return -1;  
+    }
+    
+    int count = 0;
+    string line;
+    while (getline(input_file,line))       // getline , delimter is automatically set to \n, loop until no more line
+    {
+        count = count + 1;  // updat ecounter
+    }
+    return count;       // return
+    input_file.close(); // close file. 
+    
+    
+}
+
+
+int main()
+{
+    
+}

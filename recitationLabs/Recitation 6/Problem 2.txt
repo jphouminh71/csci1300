@@ -1,0 +1,48 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Flemming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Recitation 6 problem 2
+// February 22, 2018
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+/*
+    function will accept two int values, one being an array and another being a int for length
+    intitialize array index
+    initialize value for indexing variable
+    while loop that terminates after the size is met
+        print out the current array index
+        increment
+            repeat until while loop terminates. 
+*/
+void printValues(int myArray[] , int length)    // returns nothing accepts int array para and int value for length
+{
+    myArray[0];     // initialize array index
+    int i;      // initialize indexer 
+    i = 0;
+    while (i < length)      // terminating loop
+    {
+        cout << myArray[i] << endl;     // print, console out
+        i = i + 1;  // incrementer
+    }
+}
+
+
+int main()
+{
+    int arrayOne[49];
+    float arrayTwo[4];
+    bool arrayTri[14];
+    string arrayFor[12];
+    
+    int arrayTest1[12];     // TEST CASES
+    int arrayTest2[14];
+    printValues(arrayTest1,10);
+    printValues(arrayTest2, 10);
+    
+    
+}

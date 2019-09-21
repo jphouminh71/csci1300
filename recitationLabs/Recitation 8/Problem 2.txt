@@ -1,0 +1,50 @@
+﻿#include <iostream> 
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+
+/*
+    declare functino that will end up return an integer value, takes string variable
+    declare outstream variable
+    open the file
+    if the file fails to open
+        retunr -1;
+        
+    else
+    for loop that will run 10x
+        write out the value of i squared on it's own line
+    clsoe the file
+*/
+
+
+int fileLoadWrite(string file_name) // declaring function
+{   
+    ofstream output_file;       // declaring outstream variable 
+    output_file.open(file_name);        // opening the file
+    if (output_file.fail())     // checking too see if the file failed to open
+    {
+        return -1;      // return
+    }
+    
+    for(int i = 1; i <=10; i++)     // for loop that will run 10x
+    {
+        int squared_number = i*i;   // finding the value of current index squared
+        output_file << squared_number << endl;      // writing to the file
+    }
+    
+    output_file.close();        // closing the file
+    if (!output_file.is_open())
+    {
+        return 0;
+    }
+}
+
+
+
+
+int main()
+{
+    string file = "WritingSquare.txt";
+    fileLoadWrite(file);
+}

@@ -1,0 +1,71 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Vipra, Recitation Tuesday 930
+// Recitation 10 Problem 2; Cocktail Sorting
+// Sunday March 18th 2018
+// C9: https://ide.c9.io/joph0114/cs1300s18
+#include <iostream>
+using namespace std;
+
+
+/*
+    1. set up a while loop that will execute based on if the given flag is true or not
+    2. go to the first part of the while loop which will sort the array with the forward passes
+        if the array is sorted after just the forward pass, break the loop and print
+            while this is all happening update swap counts and comparisons count
+    3. if the array isn't sorted after the forward pass then sort it backwards
+        update comparison count and swap counter
+    4. Array should be finished sorting 
+*/
+
+
+void cocktailSort(int myarray[], int size)
+{
+    
+    bool flag = true; //sets flag to true 
+    int p = 0;
+    int r = size - 1;
+    int swap_count = 0;
+    int comparison_count = 0;
+    while (flag = true) // a loop that will start a forward pass which will start at the beginning
+    {
+        flag = false;
+        for (int i = p; i < r; ++i) 
+        {
+            comparison_count++;
+            if (myarray[i] > myarray[i + 1])  
+            {
+                swap_count++;
+                swap(myarray[i], myarray[i+1]);         //using swap function
+                flag = true;                
+            }
+        } 
+        if (!flag == true)
+            break;
+        
+        flag = false;
+        --r;
+        for (int i = r - 1; i >= p; --i) //initiate a loop for a backward pass 
+        {
+            comparison_count++;
+            if (myarray[i] > myarray[i + 1])
+            {
+                swap_count++;
+                swap(myarray[i], myarray[i+1]);
+                flag = true;
+            }
+        }
+        ++p;
+    }
+   
+    cout << "Cocktail Sort: " << endl;
+   
+    for (int i = 0 ; i < size ; i++)
+    {
+        cout<< myarray[i] << ' ';
+    }
+        
+    cout << endl;
+    cout <<"Number of comparisons: "<< comparison_count << endl;
+    cout <<"Number of swaps: "<< swap_count;
+}

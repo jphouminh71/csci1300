@@ -1,0 +1,40 @@
+﻿#include <iostream> 
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+
+/*
+    function that returns boolean value, accepts string variable
+        if file fails to open
+            return false
+        if file does open
+            return true
+        
+    
+*/
+
+
+
+
+bool checkFile(string file_name)
+{
+    ifstream input_file;        // declaring variables
+    input_file.open(file_name);     // opening the file
+    if (input_file.fail())      // checks if the file fails to open
+    {
+        return false;       // return
+    }
+    if (input_file.is_open());      // checks to see if the file is open
+    {
+        return true;    //return
+    }
+}
+
+
+int main()
+{
+    string file_name = "testfile.txt";
+    checkFile(file_name);
+    
+}

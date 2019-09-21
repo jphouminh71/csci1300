@@ -1,0 +1,146 @@
+﻿# Author: Jonathan Phouminh
+# Recitation: Tuesday 930am
+# CS1300 Spring 2018
+# Recitation 13 problem 3 
+
+
+
+
+def fizz_buzz(bound):           #accepting a bound parameter that will determine how long the for loop will run 
+    for i in range(bound+1):            # for loop for enclosed bound
+        if i % 5 == 0 and i % 3 != 0:       # conditionals for what should be printed
+            print("Buzz")   
+        elif i % 5 != 0 and i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0 and i % 3 == 0 and i != 0:
+            print("FizzBuzz")
+        else:
+            print(i)        # printing out the number if it doesn't match any conditionals 
+            
+def main():
+    x = 10 
+    # x = 2 
+    # x = 20
+    # x = 14
+    # x = 5 
+    fizz_buzz(x)        # passing a parameter and calling the function 
+    
+    
+    
+# fizz_buzz(10)
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# fizz_buzz(2)
+# 0
+# 1
+# 2
+# 0
+# 1
+# 2
+# fizz_buzz(20)
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+# 16
+# 17
+# Fizz
+# 19
+# Buzz
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+# 16
+# 17
+# Fizz
+# 19
+# Buzz
+# fizz_buzz(14)
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# fizz_buzz(5)
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# 0
+# 1
+# 2
+# Fizz
+# 4
+# Buzz

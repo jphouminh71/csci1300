@@ -1,0 +1,69 @@
+﻿#include <iostream>
+#include <string>
+using namespace std;
+/* 
+    function takes a 2d array with the column size assumed to be 4, int value for the rows, and double value for the given water level
+    define a new variable called sequence so that it will return a sequence of characters. 
+    create for loop that will run until it gets to the amount of rows passed from the main function
+        create another for loop that will now index through the column of the current row
+            conditionals that evaluate the current indece that the 2d array is at
+                if that value is greater than or equal to
+                    concatonate a _ character into the sequence variable
+                else 
+                    concatonate a * 
+                    
+            after each section of the column is evaluated, cout the output that was given, soo cout the end sequence. 
+            refresh the string variable to empty for the next row. 
+    loop will run until all the values are evaluate
+*/
+
+
+
+
+void floodMap(double myArray[][4], int rows, double water_level)    // taking in parameters , does not accept anything
+{
+    string sequence;    // creating a new string variable that will be used to store the concatonating string that will be printed 
+    
+    for (int i = 0 ; i < rows; i++)     // indexing through the rows
+    {
+        for (int columns = 0; columns < 4 ; columns++)  // indexing through the column of the row
+        {
+            if (myArray[i][columns] >= water_level)     // if the current index is greater than or equal to the given water level
+            {
+                sequence = sequence + "_";  // concatonate
+            }
+            if (myArray[i][columns] < water_level)  // else, if it isnt greater than or equal to water level
+            {
+                sequence = sequence + "*";  // concatonate
+            }
+        }
+        cout << sequence << endl;   // cout for ever row that finished
+        sequence = "";  // refreshing the sequence to empty for the new string
+    }
+    
+   
+}
+int main()
+{
+    int rows = 4;
+    double sample_array[rows][4];
+    // for (int i = 0; i < rows ; i++)      // test case that just filled in the array with different values
+    // {
+    //     for(int columns = 0; columns < 4; columns++)
+    //     {
+    //         sample_array[i][columns] = i + 10;
+    //         cout << sample_array[i][columns] << endl;
+    //     }                
+    // }
+    for (int i = 0; i < rows ; i++)
+    {
+        for(int columns = 0; columns < 4; columns++)
+        {
+            sample_array[i][columns] = i;
+            cout << sample_array[i][columns] << endl;
+        }
+    }
+    double water_level = 10;
+    
+    floodMap(sample_array,rows, water_level);
+}

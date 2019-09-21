@@ -1,0 +1,10 @@
+——Student Profile——
+
+Name:Jonathan Phouminh
+
+Major/minor:Computer Science
+
+Programming experience:CS1200
+
+What do you expect to learn in this course?
+Improve on general concepts of programming. 

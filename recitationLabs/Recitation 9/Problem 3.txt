@@ -1,0 +1,199 @@
+﻿#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+/*
+    for the new functions added..
+    declare the new member functions into the class delcaration
+    for the move right function
+        set up conditionals that will check the current direction and update the current direction dependant on which directional function is called
+    for the move foward funcion
+        function will increment OR decrement the x or y value based on how the robot is moving on the coordinate plane grid
+*/
+
+
+
+
+class Robot
+{
+public:                // specifying the attributes that the object, robat, can have
+    int x;
+    int y;
+    char header; 
+
+
+
+
+public:
+
+
+    Robot()    // default constructor
+    {
+        int x = 0;
+        int y = 0;          // cant initialize a character, 
+    }
+    
+    int getX();         // declaring member functions
+    int getY();
+    char getHeading();
+    void setX(int x_value);
+    void setY(int y_value);
+    void setHeading(char header);
+    void turnLeft();
+    void turnRight();
+    void moveForward();
+    
+    
+   Robot(int x_value, int y_value, char character)  // overloaded constructor 
+    {
+        x = x_value;
+        y = y_value;
+        header = character;
+    }
+    
+    
+    
+};
+
+
+int Robot::getX()       // all the below are the function definitions for the member functions
+{
+    return x;    
+}
+
+
+void Robot::setX(int x_value)
+{
+    x = x_value;
+}
+
+
+int Robot::getY()
+{
+    return y;
+}
+
+
+void Robot::setY(int y_value)
+{
+    y = y_value;
+}
+
+
+char Robot::getHeading()
+{
+    return header;
+}
+
+
+void Robot::setHeading(char character)
+{
+    if (character == 'N' || character == 'S' || character == 'E' || character == 'W')
+    {
+        header = character;
+    }
+    else{
+        header = '?';
+    }
+}
+
+
+void Robot::turnLeft()      // new functiom defintion for the new member function
+{
+    if (header == 'N')      // conditionals that check the current direction and set eqaual to the new directino dependant upon turn direction
+    {
+  
+        header = 'W';
+    }
+    else if(header == 'S')
+    {
+       
+        header = 'E';
+    }
+    else if(header == 'E')
+    {
+
+
+        header = 'N';
+    }
+    else if (header == 'W')
+    {
+ 
+        header = 'S';
+    }
+}
+
+
+void Robot::turnRight()
+{
+    if (header == 'N')
+    {
+
+
+        header = 'E';
+    }
+    else if(header == 'S')
+    {
+ 
+        header = 'W';
+    }
+    else if (header == 'E')
+    {
+
+
+        header = 'S';
+    }
+    else if (header == 'W')
+    {
+  
+        header = 'N';
+    }
+}
+
+
+void Robot::moveForward()       // function will incremeent the value of the coordinates based ona  system of a coordinate plane 
+{
+    if ( header == 'S')
+    {
+        y--;
+    }
+    else if(header == 'N')
+    {
+        y++;
+    }
+    else if(header == 'E')
+    {
+        x++;
+    }
+    else if(header == 'W')
+    {
+        x--;
+    }
+}
+
+
+
+
+int main()
+{
+    // Robot robot1 = Robot(9, 1, 'N');        // test cases
+    // robot1.turnLeft();
+    // cout << robot1.getX() << endl;
+    // cout << robot1.getY() << endl;
+    // cout << robot1.getHeading() << endl;
+    
+    // Robot robot1 = Robot(0, 0, 'N');
+    // robot1.moveForward();
+    // cout << robot1.getX() << endl;
+    // cout << robot1.getY() << endl;
+    // cout << robot1.getHeading() << endl;
+    
+    Robot robot1 = Robot(0, 0, 'N');
+    robot1.turnLeft();
+    robot1.turnRight();
+    robot1.moveForward();
+    cout << robot1.getX() << endl;
+    cout << robot1.getY() << endl;
+    cout << robot1.getHeading() << endl;
+}

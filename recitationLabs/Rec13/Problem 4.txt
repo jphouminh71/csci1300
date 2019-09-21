@@ -1,0 +1,37 @@
+﻿# Author: Jonathan Phouminh
+# Recitation: Tuesday 930am
+# CS1300 Spring 2018
+# Recitation 13 problem 4
+
+
+def oneSum(n):  # take in one parameter
+    total = 0   # placeholder
+    x = 0   # placeholder
+    for i in range(0, n):   # for loop look that runs for as long as the parameter inputted
+        a = 10**i       # value that is being raised to the power of the current loop number
+        x = x + a   # totals up the final value after a
+        total = total + x   # update total
+    print(total)    # print final value
+    
+def main():
+    oneSum(10)
+    # oneSum(0)
+    # oneSum(4)
+# n = randrange(0, 20)  // test case
+# testOneSum(n)
+# Success
+# Success
+# n = randrange(0, 20)
+# testOneSum(n)
+# Success
+# Success
+# n = randrange(0, 20)
+# testOneSum(n)
+# Success
+# Success
+# testOneSum(3)
+# Success
+# Success
+# testOneSum(10)
+# Success
+# Success

@@ -1,0 +1,65 @@
+﻿#include <iostream>
+#include <iomanip> 
+using namespace std; 
+
+
+/*
+    declaring 3 different objects in the same class
+        dest
+        carr
+        crui
+    intitialize the size of each object class 
+        dest has 3
+        carr has 5
+        crui has 2
+        
+    write while loop that will hit each ship for as long as until one ship has sunk
+        record hit in this order
+        //dest
+        carr
+        crui
+*/
+
+
+void play(){
+        //TODO: Declare 3 instances/objects of the battleship class: Destroyer Carrier Cruiser
+        battleShip Destroyer;       // defining 3 different objects of type battleship
+        battleShip Carrier;
+        battleShip Cruiser;
+
+
+
+
+        //TOD0: Give the ships a size: Destroyer-3 Carrier-5 Cruiser-2
+        // you will need to call the appropriate methods
+        Destroyer.getSize();        // declaring the sizes of the different objects
+        Destroyer.setSize(3);
+        Carrier.getSize();
+        Carrier.setSize(5);
+        Cruiser.getSize();
+        Cruiser.setSize(2);
+
+
+
+
+        
+        // Once you have this running for one, expand this while loop to include the
+        // other two instances. Have the while loop end when all three ships have been sunk.
+
+
+        // Make your while condition while ship one is not sunk OR ship two is not sunk OR ship three is not sunk.
+
+
+
+
+
+
+        while(Destroyer.isSunk() == false || Carrier.isSunk() == false || Cruiser.isSunk() == false)        // while loop conditional 
+        {
+        Destroyer.recordHit();      // hits each ship in this order accordingly a ship is sunk
+        Carrier.recordHit();        
+        Cruiser.recordHit();
+
+
+    }
+}

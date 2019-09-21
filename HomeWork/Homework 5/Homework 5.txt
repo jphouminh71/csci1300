@@ -1,0 +1,158 @@
+// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Flemming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Homework 4, Problem 1
+// February 27, 2018
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+/*
+    function takes a int array parameter and int value for size
+    create a new array and copy values of passed array
+    function has two counters that will be used
+    while loop that exectues until the value of counter g reaches one less than given size. 
+        start updating the given array at position 0 by updating it with the last position of the new array created
+        subtract 1 from the new array
+        add one to the orignal array
+*/
+void reverse(int samples[] , int size)
+{
+    int original_sample[size];      // declaring new array 
+    int g = 0;
+    while ( g < size )
+    {
+        original_sample[g] = samples[g];
+        g = g + 1;
+    }                           // at this point all values of the passed array are passed into the new array copied
+    
+    int i = size;       // starting from the last value of the given array for the original array
+    int count = 0;      // count for moving the array being updated 
+ 
+    while ( i > 0 )
+    {
+        samples[count] = original_sample[i - 1];
+        i = i - 1;
+        count = count + 1;
+    }
+   
+
+
+}
+
+
+/*
+    function that will not return anything, takes int array , int size, samping rate, and double value for the delay
+    create a new array that will be used when reading data
+        copy all the values in the new array
+        
+    create variable that will be used to determine the position of value that will be needed to add
+    create while loop that executes so that the function wont cause semantic errors, 
+    start the while loop at the last value of the array
+        update the array value by adding the positional value need
+        keep executing
+*/
+
+
+void add_echo(int samples[], int size, int sampling_rate, double delay)
+{
+    int new_sample[size];            // declaring an array that will be able to hold more values. 
+    int i = 0;
+    while ( i < size)
+    {
+        new_sample[i] = samples[i];
+        i++;
+    }                       // all previous pieces of passed array are copied
+    
+    int adding_position = sampling_rate * delay;
+    int g = size - 1;   // starting the positioning of calcuating the array at the last value
+    while ( g >= adding_position )
+    {
+
+
+        samples[g] = samples[g] + new_sample[g - adding_position];      // updating the current index
+        g--;
+    }
+    
+    
+}
+
+
+/*
+    function takes a int array parameter and int value for size, will not return anything
+    creating a new array 
+        copy values of passed array into the new array created
+    create a value for maximum value
+    while loop that will update max value if the current value it is at is greater than the current max value
+    
+    afterwards
+    create a while loop that will go through each value in the array
+        in the while loop , update each value with the given equation using the maximum value function
+*/
+void normalize(int samples[], int size)
+{
+    int max_value = 0;      // initializing variable to find max value
+    int i = 0;
+    while ( i < size)       // going through each value to see if any values are greater than the current max value
+    {
+        if ( samples[i] > max_value)        // if true then update the max value
+        {
+            max_value = samples[i];
+            i = i + 1;
+        }
+        else
+        {                       // if not keep going through each character
+            i++;
+        }
+    }                       //  while loop that found the max value
+    
+    int g = 0;
+    while ( g < size)   // loop that exectues until the value of couter reaches one less than g
+    {
+        samples[g] = (samples[g] * 36773)/ max_value;       // updating everyvalue of the array by modifying it through this euquation
+        g++;
+    }
+  
+}
+
+
+
+
+int main()
+{
+    // int samples[] = {5,8,3,10,6,2};            // test case for reverse function
+    // int size = 6;
+    
+    // // process(samples, 5);
+    // // int i = 0;
+    // // while ( i < 5)
+    // // {
+    // //     cout << samples[i] << endl;
+    // //     i++;
+    // // }
+    
+    // add_echo(samples, size, 2, 1.5);
+    
+    // //normalize(samples, size);
+    // // int i = 0;
+    // // while ( i < size)
+    // // {
+    // //     cout << samples[i] << endl;
+    // //     i++;
+    // // }
+    
+    // int i = 0;
+    // while ( i < size)
+    // {
+    //     cout << samples[i] << endl;
+    //     i++;
+    // }
+    
+    // cout << " 5,6,3,15,14,5" << endl;
+    
+    
+    
+}

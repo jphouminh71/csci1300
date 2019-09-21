@@ -1,0 +1,22 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Flemming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Recitation 6 problem 1
+// February 22, 2018
+
+
+#include <iostream>
+#include <string> 
+using namespace std;
+
+
+int main()
+{
+    int arrayOne[49];           // declaring arrays with sizes, all contain junk values
+    
+    float arrayTwo[4];
+    bool arrayTri[14];
+    string arrayFor[12];
+}

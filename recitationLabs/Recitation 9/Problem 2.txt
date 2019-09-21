@@ -1,0 +1,122 @@
+﻿#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+/*
+    define class named robot
+    declare private members
+    delcare public members
+        delcare default constructor
+        declare overloaded contructor
+        delcare the rest of the member functions 
+        
+    outside of the class declaration
+    define all the member functions about what they do 
+*/ 
+class Robot
+{
+private:                // specifying the attributes that the object, robat, can have
+    int x;
+    int y;
+    char header; 
+public:
+    Robot()    // default constructor
+    {
+        int x = 0;
+        int y = 0;          // cant initialize a character, 
+    }
+    // int getX();         //  Initialized this function that will get the private member X so it can be set
+    // void setX(int x,int x_value);
+    // int getY();
+    // void setY(int y,int y_value);
+    // char getHeader();
+    // void setHeader(char header,char character);
+    
+    int getX();         // declaring public member functions
+    int getY();
+    char getHeading();
+    void setX(int x_value);
+    void setY(int y_value);
+    void setHeading(char header);
+    
+    
+   Robot(int x_value, int y_value, char character)      // overloaded constructor
+    {
+        x = x_value;
+        y = y_value;
+        header = character;
+    }
+    
+    
+    
+};
+
+
+int Robot::getX()               // everything from here dowm the member function defintions
+{
+    return x;    
+}
+
+
+void Robot::setX(int x_value)
+{
+    x = x_value;
+}
+
+
+int Robot::getY()
+{
+    return y;
+}
+
+
+void Robot::setY(int y_value)
+{
+    y = y_value;
+}
+
+
+char Robot::getHeading()
+{
+    return header;
+}
+
+
+void Robot::setHeading(char character)
+{
+    if (character == 'N' || character == 'S' || character == 'E' || character == 'W')       // conditional that makes sure that a valid input for direction is inputted
+    {
+        header = character;
+    }
+    else{
+        header = '?';
+    }
+}
+        
+int main()
+{
+    // Robot robot1 = Robot(1, 1, 'S');             TEST CASES
+    // robot1.setX(5);
+    // robot1.setY(10);
+    // robot1.setHeading('N');
+    // cout << robot1.getX() << endl;
+    // cout << robot1.getY() << endl;
+    // cout << robot1.getHeading() << endl;
+    
+    // Robot robot1 = Robot(1, 1, 'S');
+    // robot1.setX(-3);
+    // robot1.setY(12);
+    // robot1.setHeading('W');
+    // cout << robot1.getX() << endl;
+    // cout << robot1.getY() << endl;
+    // cout << robot1.getHeading() << endl;
+    
+    // Robot robot1(-1, -1, 'X');
+    // robot1.setX(0);
+    // robot1.setY(0);
+    // robot1.setHeading('?');
+    // cout << robot1.getX() << endl;
+    // cout << robot1.getY() << endl;
+    // cout << robot1.getHeading() << endl;
+}

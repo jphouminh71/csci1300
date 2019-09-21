@@ -1,0 +1,25 @@
+﻿# Author: Jonathan Phouminh
+# Recitation: Tuesday 930am
+# CS1300 Spring 2018
+# Recitation 13 problem 1 
+
+
+
+
+def print_param(x):     # take in a parameter and print it 
+    print(x)
+    
+def
+
+
+def main():
+    x = "hello world"     
+    # x = "hello"  Test Cases for problem 1
+    # x = "world"
+    # x = "World"
+    print(x)        # call print function and pass a parameter value
+    
+# Test case outputs For problem 1
+#   hello
+#   world
+#   World

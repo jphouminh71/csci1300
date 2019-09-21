@@ -1,0 +1,85 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Flemming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Recitation 6 problem 4
+// February 22, 2018
+
+
+#include <string>
+#include <iostream> 
+using namespace std;
+/* 
+    function returns nothing , takes an array as int , and size as int
+    edge case if there are not enough values to do the comparision
+        return the normal array
+    if there are enough values to compare execute this
+        Create a new array that 'saves' the old array values that will be used to compare values
+        intitialize count variable to index through each piece of the array, starting with the second piece
+        while loop that terminates when i gets big enough just before getting larger than the 'size'
+            comparison statements that determine which value is larger
+                replace the original value of the orignal array with the new one
+                **While loop is comparing values using the new array created
+*/
+void replaceNums(int myArray[], int size)     
+{
+    int new_array[size];       // creating a new array to keep old variables
+    int g = 0;
+    
+    while ( g < size )      
+    {
+        new_array[g] = myArray[g];
+        g = g + 1;
+    }                               // at this point all the variables of the previous array are saved into this new one
+    
+    if ( size < 3 )
+    {
+        myArray = myArray;      // if there are not enough values to compare, the original array will be returned
+    }
+    else if ( size >= 3 )
+    {
+        int i = 1;          // start at the first indece
+        while ( i < size - 1 )      // ending at the second to last character
+        {
+            if ( new_array[i - 1] > new_array[i + 1] )      // seeing if the left most value is greater than the right
+            {
+                myArray[i] = new_array[i - 1];      // updating the orignal array
+                i = i + 1;
+            }
+            else if ( new_array[i + 1] > new_array [ i - 1])        // seeing if the right most value is greater than the left
+            {
+                myArray[i] = new_array[i + 1];      // updating the original array
+                i = i + 1;
+            }
+        }
+    
+    }
+
+
+
+
+    
+}
+
+
+
+
+int main()
+{
+    int test_array[] = {5,4,3,2,1};        // Test cases         you want 55431
+   // int test_array[] = {1,2,3,4,5}; 
+    //int test_array[] = {1,2,34,4,5}; 
+    int size = 5;
+    
+    
+    replaceNums(test_array,size);       // replacing out each piece of the array 
+
+
+    int i = 0;
+    while ( i < size )      // printing the new values of the array
+    {
+        cout << test_array[i] << endl;
+        i = i + 1;
+    }
+}

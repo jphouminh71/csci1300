@@ -1,0 +1,67 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Vipra, Recitation Tuesday 930
+// Recitation 10 Problem 1; Bubble Sorting
+// Sunday March 18th 2018
+// C9: https://ide.c9.io/joph0114/cs1300s18
+#include <iostream>
+#include <string> 
+#include <iomanip> 
+
+
+using namespace std;
+
+
+void bubbleSort(int myArray[],int size)
+{
+    int swap_count = 0;
+    int comparison_count =0;
+    bool is_sorted = false;
+    int i = 0;
+    while (is_sorted == false)
+    {
+        is_sorted = true;
+        for (int j = 0; j < size - 1 - i ; j++)
+        {
+            if (myArray[j] > myArray[j + 1])
+            {
+            
+                int previous_value = myArray[j];
+                myArray[j] = myArray[j + 1];
+                myArray[j + 1] = previous_value;
+                swap_count++;
+                is_sorted = false;
+            }
+            
+            comparison_count++;
+            //is_sorted = false;
+            
+            
+        }
+     i++;
+
+
+    }
+    cout << "Bubble Sort: " << endl;
+    for (int k = 0; k < size; k++)
+    {
+        cout << myArray[k] << ' ';
+    }
+    cout << endl;
+    cout << "Number of comparisons: " << comparison_count << endl;
+    cout << "Number of swaps: " << swap_count << endl;
+}
+
+
+
+
+
+
+
+
+int main()
+{
+    int size = 6;
+    int sample_array[] = {4,2,1,3,5,10};
+    bubbleSort(sample_array, size);
+}

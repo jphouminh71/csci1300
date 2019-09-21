@@ -1,0 +1,33 @@
+﻿#include <iostream>
+#include <string>
+using namespace std;
+/*
+    function will not return anything, takes a 2d array with 4 as the number of columns, and an integer value for the amount of rows
+    double for loop that will fill in a row at a time, 0,0 0,1 etc
+    set the value of the current indexed element = to the current row and column it is currently at 
+
+
+*/
+void fillMatrix(int myArray[][4], int rows)       // when declaring arrays, the columns must have a size declariation
+{
+    for(int i = 0; i < rows ; i++)      // for loop that first access the current row
+    {
+        for(int columns = 0; columns < 4; columns++)    // for loop that now access the current column index of the current row
+        {
+            myArray[i][columns] = i + columns;      // index = row + column
+        }
+    }
+    
+    
+}
+
+
+int main()
+{
+    int rows = 3;       // test cases
+    int sample_array[rows][4];
+    // int rows = 5;
+    // int sample_array[rows][3];
+    fillMatrix(sample_array, rows);
+    
+}

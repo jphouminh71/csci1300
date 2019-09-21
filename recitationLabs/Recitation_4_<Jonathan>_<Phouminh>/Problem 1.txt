@@ -1,0 +1,78 @@
+﻿// Author: Janathan Phouminh
+// Recitation: 930am
+// Akriti Kapur
+// Homework 3
+// February 4th, 2018
+
+
+#include <iostream>
+using namespace std;
+
+
+/*
+    calcPay function accepts two parameters, doesn't return anything
+        1. redefine all accepted variables and new variables to be used
+        2. set 3 conditional statements, one checking to make sure all passed varibles are positive
+                        - prints a statemet telling the person that their input is invalid
+        another conditional that is ONLY evaluated if hours worked is less than or equal to 40
+                        - Calculates and prints the normal pay rate
+        Last conditional that is only evaluated if hours_worked is greater than 40. 
+                        - Calculates normal pay rate for the first 40 hours
+                        - Calculates the amount of money earned for the remaining hours over 40
+                        - Update the normal 40 hours of money earned with the extra amount of money
+                        - print pay
+        3. main()
+            - Passes parameters
+            - Multiple Test Cases
+*/          
+
+
+
+
+
+
+void calcPay(float Hours_worked, float Pay_rate)            // accepts two float para
+{
+    float Hours_Worked = Hours_worked;      // variable definition
+    float Pay_Rate = Pay_rate;
+    float Total_Pay;
+    float Overtime_Hours;
+    float Overtime_Pay;
+  
+    
+    if (Hours_Worked < 0 || Pay_Rate < 0)           // Makes sure values are all psotive
+    {
+        cout << "Pay rate and hours worked cannot be negative values." << endl;         // console output
+        //return 0; 
+    }
+    
+    
+    if (Hours_Worked >= 0 && Hours_Worked <= 40)        // Calculates normal Payrate
+    {
+        Total_Pay = Hours_Worked * Pay_Rate;                        // calculation
+        cout << "Your pay is $" << Total_Pay << "." << endl;        // console out
+    }
+    
+    if (Hours_Worked > 40)                 // Calculates overtime Payrate
+    {
+        Total_Pay = (40 * Pay_Rate);                        // calcluation for first 40 hours
+        Overtime_Hours = Hours_Worked - 40;                 // calc for remaining hours
+        Overtime_Pay = Overtime_Hours * (1.5 * Pay_Rate);       // calc for pay for extra hours
+        Total_Pay = Total_Pay + Overtime_Pay;           // update total pay
+    
+        
+        cout << "Your pay is $" << Total_Pay << "." << endl;        // console out
+        //cout << Overtime_Hours << endl;
+        //cout << Overtime_Pay << endl;
+    }
+    
+    
+}
+
+
+int main()
+{
+    calcPay(41, 10);
+    calcPay(400, 400);
+    calcPay(400, 1000000);
+}

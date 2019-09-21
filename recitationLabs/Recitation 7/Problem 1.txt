@@ -1,0 +1,73 @@
+﻿#include <iostream>
+#include <string>
+using namespace std;
+/*
+    function takes a string , character, an empty array, and a size for the array size
+    defining variables that the function will use
+    first start off by taking the given string and concatonating a seperator character to the end 
+    edge case
+        if the sequence is empty then return 0
+    else
+        make a while loop that will evaluate each characeter
+        go through each character until it reaches the given seperator character
+            if run into the seperator charactor take that index as the last index and take a substring that starts from the last position and store it into the array
+            keep going until the end of the while loop
+            each iteration of adding a word into the array adds 1 to g
+            g = word count
+    return the word count
+*/
+int Split(string sequence1, char seperator_character, string myArray[], int size)
+{
+    string sequence =  sequence1 + seperator_character;     // concatonate the seperator character  
+    string current_word;    // represents the substring that will be placed in the array that was taken from the string
+    int last_index = 0; // represents the last index of the last substring taken
+    int word_count = 0; // value that will end up being returned
+    int i = 0;  // g and i are counters
+    int g =0;
+    
+    if ( sequence1 == "" )      // edge case
+    {
+        return 0;
+    }
+    
+    while ( i <= sequence.length())
+    {
+        
+        if ( sequence[i] != seperator_character)        // part of the while loop that evaluetes if the current character is a seperator character or not
+        {
+            i = i + 1;
+        }
+        else if ( sequence[i] == seperator_character || sequence[i] == '\0')    // conditional that sees if the current index is the seperator character
+        {
+            //word_count = word_count + 1;
+            current_word = sequence.substr(last_index, i - last_index); // takes the substring from the current index -1 from the last known index
+            
+            myArray[g] = current_word;  // places the substring into the empty array
+            
+            last_index = i + 1; // saves the last index of the seperator character one character forward
+            //cout << current_word << endl;
+            i = i + 1;  // keeps while loop running
+            g = g + 1;  // counting the amount of words that were being added. 
+        }
+    }
+    
+    
+    
+    
+    word_count = g;     
+    return word_count;      // returning the final word count
+ 
+}
+
+
+int main()      // test case
+{
+    int size = 100;
+    string sample_array[size];
+    
+    
+    cout << Split("hello/world", '/' , sample_array, size);
+    cout << Split("hello/world/sfd", '/' , sample_array, size);
+    cout << Split("hello/world/sfd", '/' , sample_array, size);
+    
+}

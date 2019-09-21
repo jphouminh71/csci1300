@@ -1,0 +1,63 @@
+﻿// Author: Janathan Phouminh
+// Recitation: 930am
+// Akriti Kapur
+// Homework 3
+// Feburary 4th, 2018
+
+
+#include <iostream>
+using namespace std;
+/*
+    collatzStep function accepts one integer parameter
+    1. Redefined passed parameter
+    2. 3 Conditional Statements 
+        1. First condition checks if the value passed is negative
+            -If true the function will stop
+        2. Second condition checks if the value passed is even
+            -If true the function will return the passed value / 2
+        3. Third Condition checks if the passed parameter is odd
+            -If true the function will return the value of 3n+1
+            
+    3. main()
+        -Test Cases
+*/
+
+
+
+
+
+
+int collatzStep(int number)
+{
+    int value = number;         // Checks if value is negative
+    if (value < 0)
+    {
+        //cout << "negative number";
+        return 0;
+        
+    }
+    else if (value % 2 == 0)        // Checks if value is even
+    {
+        //cout << "This number is even";
+        value = value / 2;              //calc 
+        return value;                   //console out
+    }
+    else if (value % 2 != 0)        // Checks if value is odd
+    {
+        //cout << "This number is odd";
+        value = (3*value) + 1;          //calc      
+        return value;           //console out 
+    }
+    
+    return 0;
+}
+
+
+
+
+int main()
+{
+    cout << collatzStep(11) << endl;
+    cout << collatzStep(100) << endl;
+    cout << collatzStep(120) << endl;
+}

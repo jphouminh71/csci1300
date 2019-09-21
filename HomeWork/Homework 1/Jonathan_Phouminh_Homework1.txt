@@ -1,0 +1,171 @@
+﻿Jonathan Phouminh
+
+
+Homework 1
+
+
+Ionia Flemming 
+
+
+Recitation 101
+
+
+joph0114
+
+
+
+
+
+
+1. Main function()
+        Current_population =  325766246                                           
+                year = 365
+                Birth_rate = current_population + 1 // 8 seconds
+                Death_rate = current population -1 // 12 seconds
+                Immigration_rate = current population + 1 // 33 seconds
+
+
+// Find the number of seconds in a year
+                Hours = year * 24 // get the number of hours in a year
+                Seconds = hours * 60 // gets number of seconds 
+                
+                birth_count = seconds / 8         // Tells how many births
+                Current_population = birth_count  // updates Current_population
+                
+                Death_count = seconds / 12  // Tells how many deaths 
+                Current_population = Current_population - death_count // updates Current_pop
+
+
+                Immigration_count = seconds / 33 // gives immigration count
+Current_population = Current_population + immigration_count
+
+
+
+
+2.   Main function(input)                // takes one parameter being the user seconds
+// Objective is to display days hours minutes and seconds
+        int Total_Days
+        Int Total_hours
+        Int Total_minutes
+        Int Total_seconds
+        Int Day_Count
+        Int Minute_Count
+
+
+        Seconds = user_input
+Cout << prompt the user to enter the desired number of seconds to convert 
+Cin >>  user_input
+
+
+Total_Days = Seconds / 86400  // Updates Total_Days variable
+Day_Count = Total_Days * 86400 // Finds total seconds from the amount of days
+Seconds = Seconds - Day_Count // Updates remaining seconds 
+
+
+Total_Hours = Seconds / 1440  
+Hour_Count = Total_Hours *60 
+Seconds = Seconds - Day_Count 
+
+
+Total_minutes = Seconds / 60
+Minute_Count = Total_minutes * 60 
+Seconds = Seconds - Minute_Count
+
+
+//at this point remaining seconds will remain as variable, Seconds
+
+
+Cout << Displays the variables Total_Days...etc onto the console
+
+
+
+
+3. main(input)
+        Int fahrenheit
+        Int celsius
+        Cout << ask for user input for temp in fahrenheit
+        Cin >> fahrenheit                // Receives input
+
+
+        Celsius = (fahrenheit - 32) * (9/5)        //Conversion factor and stores celsius 
+
+
+        Return celsius;                 
+
+
+4. main()
+        Int User_input
+        Int generated_number
+        Int while_number = 0    // keep the while loop running
+        
+        Generated_number = random.randrange(1,11)
+        
+        Cout << ask user for number
+        Cin >> User_input 
+
+
+        While while_number = 0 
+                If User_input != generated_number 
+                        Cout << ask user for new number
+                        Cin >> User_input // Updates their previous number guess to a new one
+                Elif User_input == generated_number 
+                        Cout << congratulate the user and print out number
+                        While_number = 1 // Terminates the while loop and function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.  main()
+        Int mpg 
+        
+        Cout << ask user for number of mpg 
+        Cin >> mpg 
+        
+        If mpg >= 50 
+                Cout << “Nice Job. “ 
+        If mpg < 50 and mpg >=25 
+                Cout << “Not great, but okay” 
+        If mpg < 25
+                Cout << “So bad, so very, very bad
+
+
+6.  main()
+        Int save_the_citizen = 1
+        Int fight_the_villian = 2
+        Int return_to_base = 4
+        Int user_input
+        
+        While return_to_base == 4  // keeps the while loop running
+                Cout << ask for user input in form of an integer from 1,3
+                Cin >> user inputs an integer
+                        
+                If  user_input == 1
+                        Cout << “You have saved the citizen”
+
+
+                If user_input == 2
+                        Cout << “you have defeated the villian”
+                If user_input == 3
+                        Cout << “Who will save the world?”
+                        Return_to_base == 3  // since the variable is no longer 4 the while loop should and end the game should exit. 
+
+
+7. main()
+        // send the bot moving forward until it encounters any type of special tile
+        If not on special tile
+                Keep moving forward 
+        If front is blocked
+                Turn left twice and keep moving forward
+                If on special tile follow the rule

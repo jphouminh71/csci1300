@@ -1,0 +1,48 @@
+﻿#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+/*
+    Declare a new class named Robot
+    Delcare public  section in the class for members
+        delcare public members
+        delcare a constructor that accepts attributes
+    
+    outside of the class define the defintion of the public constructor
+    assign the passed public function 
+*/
+
+
+
+
+class Robot         // define class name roboy
+{
+public:                             //      DECLARING ATTRIBUTES
+    int x;                                  // these are attributes that can be assined to the object of type Robot
+    int y;
+    char heading;
+    
+    Robot(int start_x, int start_y, char start_heading);        // this is a constructor, that paramaters that are passed are given
+};                                                              // through the main function when the user delcares a new object
+        
+Robot::Robot(int start_x, int start_y, char start_heading)
+{
+    x = start_x;        // assiging the new object its attributes using the given paramaters of the wanted new object
+    y = start_y;
+    heading = start_heading;
+}
+
+
+int main()
+{
+    // Robot robot1 = Robot(5, 6, 'N');             TEST CASE
+    // cout << robot1.x <<endl;
+    // cout << robot1.y << endl;
+    // cout << robot1.heading << endl;
+    
+    // Robot robot1 = Robot(-1, 0, 'W');
+    // cout << robot1.x <<endl;
+    // cout << robot1.y << endl;
+    // cout << robot1.heading << endl;
+}

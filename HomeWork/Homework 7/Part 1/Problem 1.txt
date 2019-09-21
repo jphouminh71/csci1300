@@ -1,0 +1,67 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Vipra, Recitation Tuesday 930
+// Homework 7 problem 1 pt 1
+// Sunday March 18th 2018
+// C9: https://ide.c9.io/joph0114/cs1300s18
+
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+class Book
+{
+public:
+
+
+    string getAuthor();         // variable declarations
+    string getTitle();
+    void setTitle(string);
+    void setAuthor(string);
+    
+    Book()                  // default constructor
+    {
+        author = "NONE";        // default values of the private members are set to nothing
+        title = "NONE";
+    }
+    Book(string given_title, string given_author)       // overloaded constructor
+    {
+        author = given_author;      // private attributes of the current object are set equal to the passed strings
+        title = given_title;
+    }
+private:
+    string title;
+    string author;
+};
+
+
+string Book::getAuthor()        // everything from here down are the function definitions for the public member functions 
+{
+    return author;
+}
+string Book::getTitle()
+{
+    return title;
+}
+void Book::setTitle(string given_title)
+{
+    title = given_title;
+}
+void Book::setAuthor(string given_author)
+{
+    author = given_author;
+}
+
+
+
+
+
+
+int main()
+{
+    
+}

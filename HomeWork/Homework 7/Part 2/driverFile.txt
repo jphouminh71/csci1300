@@ -1,0 +1,10 @@
+﻿#include "Library.h"
+
+
+int main()
+{
+    Library library1; 
+    library1.LoadBooks();
+    library1.LoadUsers();
+    library1.login();
+}

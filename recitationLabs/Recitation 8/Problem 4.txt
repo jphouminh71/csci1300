@@ -1,0 +1,72 @@
+﻿#include <iostream>
+#include <fstream> 
+#include <iomanip>
+using namespace std;
+/*
+    open text file and take each line and store it into the array
+        update the array
+    start a counter that will count the amount of lines inputted into the array
+        return the counter 
+        
+    edge cases; if line is empty dont add it to the array or count
+    
+    define function that returns integer and takes 3 parameters of string, string array, and int for size of array
+        delcare instream file
+        two main conditionals that check if file is open
+        if the file is open
+            initialize counter
+            initialize variable that will store value from getline function
+            while loop that executes until there are no more lines
+            if the current element is not empty then the current index of the array is equal to the value of lines
+            index counter so it can copy more values for leter element indexes
+        if function is not open
+            return -1. 
+            
+            
+        close file
+*/
+
+
+int getLinesFromFile(string file_name, string myArray[], int size)
+{
+    ifstream file;
+    
+    file.open(file_name);
+    
+    if(file.is_open())
+    {
+        int count = 0;
+        string lines;
+        while (getline(file,lines))
+        {
+            if(lines.empty() == false)
+            {
+                myArray[count] = lines;
+                count = count + 1;
+            }
+        }
+        file.close();
+        return count;
+    }
+    else
+    {
+        return -1;
+    }
+    
+    file.close();
+}
+int main()
+{
+    int size = 4;
+    string empty_array[size];
+    string file_name = "textfile.txt";
+    
+    ofstream output_file;
+    output_file.open(file_name);
+    // for (int i = 0; i < size; i++)
+    // {
+    //     output_file << "test\n";
+    // }
+    cout << getLinesFromFile(file_name, empty_array, size);
+    cout << empty_array[2];
+}

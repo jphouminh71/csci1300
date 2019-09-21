@@ -1,0 +1,60 @@
+﻿// Author: Janathan Phouminh
+// Recitation: 930am
+// Akriti Kapur
+// Homework 3
+// Feburary 4th, 2018
+
+
+#include <iostream>
+using namespace std;
+
+
+/*
+    1. printMultiples function takes two integer parameters
+        - redefine parameter names
+    2. Two conditional statements
+        1. checks to see if the value is greater than max_value 
+            -If true , function ends
+        2. chekcs to see if value is less than max value
+            -If true the function will execute a while loop 
+                - Initialize the value of count at value so value will be printied before updated
+                - everytime the loop executes the loop will add the value of itself to the count and print out the new value of count
+                
+        3. main()
+            1. test cases
+*/
+
+
+
+
+int printMultiples(int number, int max_number)          // accepts two parameters
+{
+    int value = number;         // redefine
+    int max_value = max_number;
+    
+    if (value > max_value)      // checks if value is greater than max_value
+    {
+        return 0;
+    }
+    
+    else if (value < max_value)     // checks to see if value is less than max value
+    {
+        int count = value;          //initialize
+        while (count <= max_value)      //while conditional
+        {
+            //count = count + value;
+            cout << count << endl;      // console out
+            count = count + value;      // updates count variable
+           
+        }
+    }
+    return 0;
+}
+
+
+int main()
+{
+    printMultiples(3, 10);      // test cases    
+    printMultiples(4, 10);
+    printMultiples(5, 12);
+}

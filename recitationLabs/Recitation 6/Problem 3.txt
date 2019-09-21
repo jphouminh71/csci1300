@@ -1,0 +1,40 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Ionia Flemming
+// Recitation 930am 
+// https://ide.c9.io/joph0114/cs1300s18
+// Recitation 6 problem 3
+// February 22, 2018
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+/*
+    function accepts int array and int length value
+    initilize values that will be used
+    indexing number 
+    while loop that will terminate if i goes over the length
+        update total sum each iteration
+    return total sum
+*/
+int getArraySum(int myArray[], int length)      // accepting 2 parameters in int and will return an int
+{
+    int total_sum = 0;      // initializing variable that will be returned
+    myArray[0];         // setting array index to 0
+    int i = 0;      // setting indexing variable to 0;
+    while (i < length)  // terminating while loop
+    {
+        total_sum = total_sum + myArray[i];         // updating total sum
+        i = i + 1;          // updating indexing variable
+    }   
+    return total_sum;       // return total_sum
+}
+
+
+int main()
+{
+    int arrayTest1[12];     // TEST CASES
+    int arrayTest2[14];
+    cout << getArraySum(arrayTest1, 10) << endl;
+}

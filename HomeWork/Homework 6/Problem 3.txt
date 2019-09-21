@@ -1,0 +1,191 @@
+﻿// Jonthan Phouminh
+// CS1300 Spring 2018
+// Vipra / Flemming
+// March 11. 2018
+// Recitation 930 Tuesday
+// Homework 6 Problem 1
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip> 
+using namespace std;
+
+
+int ReadCorrectWords(string file_name , string correctWords[], int size, int startIndex)
+{
+    ifstream infile;    // declaring instream variable that will be used to read the file
+    
+    infile.open(file_name); // infile variable is set to open the given file. 
+
+
+    if (!infile.is_open())      // edge case
+    {
+        return -1;
+    }
+    if (startIndex >= size)  // edge case
+    {
+        return -1;
+    }
+
+
+    string line = "placeholder";
+    
+    while(getline(infile, line) && startIndex < size)
+    {
+        if ( line != "")
+        {
+            correctWords[startIndex] = line;
+            startIndex++;
+        }
+        
+    }
+   
+    int word_count = 0;
+    int i = 0;
+    while(correctWords[i] != "\0" && i < size )
+    {
+        if (startIndex > size)
+        {
+            return -1;
+        }
+        else{
+        word_count = word_count + 1;
+        i++;
+        }
+    }
+    return word_count; 
+    infile.close();
+}
+
+
+int ReadMisspelledWords(string filename, string misspelledWords[][2], int rows, int startIndex){
+    ifstream in_stream;
+    in_stream.open(filename);
+
+
+    int count = 0;
+    string lines = "    ";  // one tab position
+
+
+    if(!in_stream.is_open() || startIndex >= rows) // edge case
+    {       
+        return -1;
+    }
+    else{
+        while(getline(in_stream, lines))
+        {
+            int tab_position = 0;
+            for ( int i = 0; i < lines.length(); i++)
+            {
+                if(lines[i] == '\t')
+                {
+                    tab_position = i;
+                }
+            } 
+
+
+            misspelledWords[startIndex][0] = lines.substr(0, tab_position);
+            misspelledWords[startIndex][1] = lines.substr(tab_position + 1);
+            startIndex++;
+            if(startIndex == rows)
+            {
+                return startIndex;
+            }
+
+
+
+
+        }
+        return startIndex;
+
+
+    }
+    
+    in_stream.close();
+
+
+}
+/*
+    start by converting the word they give you into lowercase
+    --> Check if the word is correctly spelled by seaching for it in correctWords. If it is found, the function should return the word itself.
+    
+    declare function that will return a string, takes a string, string array, int size, and string for the misspelled word, and int for the 2d array
+    start of by converting any given string into all lower case values
+    intilize start indexer that will be used for a parameter for readcorrect words
+    call readcorrect words so that the array will be filled
+        while loop that will compare the given string to all values of the read correct words array
+        if found
+            return the word
+        else keep iterating until the end
+        
+    if not found in the correct words
+    repeat the proces but call misspelled words
+    check if the given word matches any of the misspelled words in the first column
+    if the given word find a match, return the misspelled words pair by returning the value of one column row over. 
+    if not found in there
+        return "unknown"
+
+
+
+
+*/
+string CheckWord(string sequence, string correctWords[], int size, string misspelledWords[][2], int rows)
+{
+    int i = 0;                          // while loop that goes through it character and makes it all lower case
+    while (i < sequence.length())
+    {
+        sequence[i] = tolower(sequence[i]);     // converts the character to lower case
+        i++;
+    }       // at this point the sample string is converted to lower case.
+    
+    int startIndex = 0; // used when calling readcorrectwords
+    
+    ReadCorrectWords("VALID_WORDS_3000-2.txt", correctWords, size, startIndex);       // correctWords array should be filled
+    
+    int g = 0;      // while loop that goes through and compares the given sequence to all the values of the array
+    while (g < size)
+    {
+        if (sequence == correctWords[g])    // if the given word is eqivalent to any of the 
+        {
+            return sequence;        // return the given sequence
+        }   
+        else{
+            g++;
+        }
+    }
+    
+    
+    //--> If the word is not found in correctWords, check if it is a misspelling we know of by searching for it in misspelledWords. If it is found, return the correct spelling.
+    
+    ReadMisspelledWords("MISSPELLED.txt", misspelledWords, rows, startIndex);   // filling the 2d array with the given sequence
+    
+    for (int j = 0; j < rows; j++)      // going through the rows
+    {
+        for (int k = 0; k < 2 ; k++)    // going through columns
+        {
+            if (sequence == misspelledWords[j][0])  // if equivalent to the misspelling we know of
+            {
+                return misspelledWords[j][1];   // return the correct spelling right next to it
+            }
+        }
+    }
+    
+    return "unknown";   // if not found in any arrays, return the string unknown
+    
+    
+    
+}
+
+
+int main()
+{
+    string sequence = "HELLO";
+    int rows = 3;
+    int size = 3000;
+    string misspelledWords[rows][2];
+    string sample_array[size];
+    
+    cout << CheckWord(sequence, sample_array, size, misspelledWords, rows);
+}

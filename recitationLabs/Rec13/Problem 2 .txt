@@ -1,0 +1,37 @@
+﻿# Author: Jonathan Phouminh
+# Recitation: Tuesday 930am
+# CS1300 Spring 2018
+# Recitation 13 problem 2
+
+
+def odd_or_even(integer):       # taking in a parameter going through conditionals to evaluate what should be printed 
+    if integer % 2 == 0:
+        print("even")
+    else:
+        print("odd")
+        
+def main():
+    x = 3       #variable declarations
+    # x = 10
+    # x = 12
+    # x = 0 
+    # x = -5
+    odd_or_even(parameter)      # calling function and passing parameter 
+    
+    
+    
+# odd_or_even(3)    test cases
+# odd
+# odd
+# odd_or_even(10)
+# even
+# even
+# odd_or_even(12)
+# even
+# even
+# odd_or_even(0)
+# even
+# even
+# odd_or_even(-5)
+# odd
+# odd

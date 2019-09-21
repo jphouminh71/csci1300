@@ -1,0 +1,115 @@
+﻿// CS1300 Spring 2018
+// Jonathan Phouminh
+// Vipra, Recitation Tuesday 930
+// Homework 7 problem 1 pt 1
+// Sunday March 18th 2018
+// C9: https://ide.c9.io/joph0114/cs1300s18
+
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+class User              // defining class
+{
+public:
+    User(string name, int array[], int numberRatings)       // overloaded public constructor
+    {
+        username = name;                        // declaring name variable value
+        for(int i = 0; i < numberRatings; i++)      // for loop that fills the ratings array with identical values of a passed array
+        {
+            ratings[i] = array[i];
+        }
+        numRatings = numberRatings;     // declaring numRatings private member
+    }
+    
+    User()                  // declaring a default constructor
+    {
+        username = "NONE";                  // essentially setting all the private member values of the new object = to nothing
+        for(int j = 0; j < 100; j++)
+        {
+            ratings[j] = 0;
+        }
+        numRatings = 0;
+    }
+    
+    int getNumRatings();        // allows access for private members
+    string getName();
+    
+    void setNumRatings(int);        // updates the values of the private members for the current object
+    void setName(string);
+    
+    int getRatingAt(int index);                         // special function since you can return an entire array
+    int setRatingAt(int position, int given_rating);
+    
+
+
+
+
+private:
+    string username;                    // initialize private members
+    int ratings[100];
+    int numRatings;
+
+
+
+
+};
+int User::getNumRatings()           // everything down are the defniitions of the public member functions
+{
+    return numRatings;
+}
+void User::setNumRatings(int given_rating)
+{
+    numRatings = given_rating;
+}
+string User::getName()
+{
+    return username;
+}
+void User::setName(string given_username)
+{
+    username = given_username;
+}
+int User::getRatingAt(int index)
+{
+    if (index >= numRatings)
+    {
+        return -1000;
+    }
+    else{
+        return ratings[index];
+    }
+}
+
+
+int User::setRatingAt(int position, int given_rating)       
+{
+    if (position >= numRatings)
+    {
+        ratings[position] = ratings[position];
+        return -1000;
+    }
+    
+    if (given_rating == -5 || given_rating == -3 || given_rating == 0 || given_rating == 0 || given_rating == 3 || given_rating == 5)
+    {
+        ratings[position] = given_rating;
+        cout << "Success!" << endl;
+        return 0;
+    }
+    else{
+        cout << "Invalid Input!" << endl;
+        return -1;
+    }
+}
+
+
+
+
+int main()
+{
+    
+}
